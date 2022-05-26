@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+	<title>Delete Book</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+	<header class="header" id="navigation-menu">
+		<div class="container">
+			<nav>
+				<ul class="nav-menu">
+					<li> <a th:href="@{/}">Home</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+
+	<section class="order mtop" id="order">
+		<div class="container">
+			<div class="heading">
+				<h5>EXPLORE YOUR BOOK WORLD</h5>
+				<h2>Are you sure you want to delete this book?</h2>
+			</div>
+			<form method="POST" th:action="@{/rooms/delete}" th:object="${room}">
+				<table>
+					<tr>
+						<th><label for="id">ID: </label></th>
+						<td th:text="${book.id}">Id</td>
+					</tr>
+					<tr>
+						<th><label for="name">Book Name: </label></th>
+						<td th:text="${book.name}">Book Name</td>
+					</tr>
+					<tr>
+						<th><label for="author">Author: </label></th>
+						<td th:text="${book.author}">Author</td>
+					</tr>
+					<tr>
+						<th><label for="type">Type: </label></th>
+						<td th:text="${book.type}">Type</td>
+					</tr>
+					<tr>
+						<th><label for="content">Content: </label></th>
+						<td th:text="${book.content}">Content</td>
+					</tr>
+					<tr>
+						<th><label for="price">Price: </label></th>
+						<td th:text="${book.price}">Price</td>
+					</tr>
+				</table><br>
+				<input class="inputX" type="submit" value="YES"><br>
+				<a th:href="@{/book}"><button class="btn1">NO</button></a>
+
+			</form>
+		</div>
+
+	</section>
+
+	<footer>
+		<div class="container grid top">
+			<div class="box">
+				<h3>Môn học</h3>
+				<p>Thực tập cơ sở</p>
+			</div>
+
+			<div class="box">
+				<h3>Giảng viên hướng dẫn</h3>
+				<p>Dương Trần Đức</p>
+			</div>
+
+			<div class="box">
+				<h3>Sinh viên thực hiện</h3>
+				<p>Bùi Tố Trinh</p>
+			</div>
+
+			<div class="box">
+				<h3>Mã sinh viên</h3>
+				<p>B19DCCN692</p>
+			</div>
+		</div>
+	</footer>
+</body>
+
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+	<title>Book</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+	<header class="header" id="navigation-menu">
+		<div class="container">
+			<nav>
+				<ul class="nav-menu">
+					<li> <a th:href="@{/}">Home</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+
+	<section class="room mtop" id="room">
+		<div class="container">
+			<div class="heading_top flex1">
+				<div class="heading">
+					<h5>EXPLORE YOUR BOOK WORLD</h5>
+					<h2>Book List</h2>
+				</div>
+				<div class="inputAdd">
+					<form method="GET" action="/add">
+						<input type="submit" value="Add Book">
+					</form>
+				</div>
+
+			</div>
+		</div>
+	</section>
+	<section class="order" id="order">
+		<div class="container">
+			<table>
+				<tr>
+					<th align="left" width="8%">ID</th>
+					<th align="left">Book Name</th>
+					<th align="left" width="35%">Author</th>
+					<th></th>
+					<th></th>
+					<th></th>
+				</tr>
+				<tr th:each="book : ${books}" valign="top">
+					<td th:text="${book.id}">id</td>
+					<td th:text="${book.name}">name</td>
+					<td th:text="${book.author}">author</td>
+					<td width="6%";><a th:href="@{/detailBook?code={code}(code=${book.id})}">More</a></td >
+					<td width="6%";><a th:href="@{/editForm?code={code}(code=${book.id})}">Edit</a></td >
+					<td width="6%";><a th:href="@{/confirmDelete?code={code}(code=${book.id})}">Delete</a></td>
+				</tr>
+			</table><br>
+		</div>
+
+	</section>
+
+	<footer>
+		<div class="container grid top">
+			<div class="box">
+				<h3>Môn học</h3>
+				<p>Thực tập cơ sở</p>
+			</div>
+
+			<div class="box">
+				<h3>Giảng viên hướng dẫn</h3>
+				<p>Dương Trần Đức</p>
+			</div>
+
+			<div class="box">
+				<h3>Sinh viên thực hiện</h3>
+				<p>Bùi Tố Trinh</p>
+			</div>
+
+			<div class="box">
+				<h3>Mã sinh viên</h3>
+				<p>B19DCCN692</p>
+			</div>
+		</div>
+	</footer>
+</body>
+
+</html>
